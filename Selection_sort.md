@@ -36,3 +36,5 @@ int main()
     
     
 }
+//the basic idea is to selec the min mum value and upadet that vakue to the min_id and 
+//swap with the  1st index 
