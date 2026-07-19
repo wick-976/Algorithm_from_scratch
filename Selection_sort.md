@@ -2,39 +2,36 @@
 using namespace std;
 int main()
 {
-    int arr_size;
-    cin>>arr_size;
-    int arr[arr_size];
-    for(int i=0;i<arr_size;i++)
+    int size;
+    cin>>size;
+    
+    int arr[size];
+    for(int i=0;i<size;i++)
     {
         cin>>arr[i];
     }
+    int min_index=0;
     
-    int min_id=0;
-    
-    for(int i=0;i<=arr_size-2;i++)
+    for(int i=0;i<size-1;i++)
     {
-        min_id=i;
+        min_index=i;
+        for(int x=i+1;x<=size-1;x++)
+        {
+            if(arr[min_index]>arr[x])
+            {
+                min_index=x;
+            }
+        }
         
-        for(int z=i+1;z<arr_size;z++){
-            if(arr[i] > arr[z])
-            {
-                min_id=z;
-            }
-            if(min_id!=i)
-            {
-                swap(arr[min_id],arr[i]);
-            }
-            
+        if(min_index!=i)
+        {
+            swap(arr[i],arr[min_index]);
         }
     }
     
-    for(int i=0;i<arr_size;i++)
-    {
+    for(int i=0;i<size;i++){
         cout<<arr[i]<<" ";
     }
-    
-    
 }
 //the basic idea is to selec the min mum value and upadet that vakue to the min_id and 
 //swap with the  1st index 
